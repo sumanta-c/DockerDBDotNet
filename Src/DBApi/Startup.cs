@@ -25,6 +25,11 @@ namespace DBApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var DBServer = Configuration["DBServer"] ?? "localhost";
+            var DBPort = Configuration["DBPort"] ?? "5432";
+            var DBUser = Configuration["DBUser"] ?? "postgres";
+            var DBPassword = Configuration["DBPassword"] ?? "postgres";
+
             services.AddControllers();
         }
 
