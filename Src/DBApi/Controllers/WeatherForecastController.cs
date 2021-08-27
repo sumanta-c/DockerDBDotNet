@@ -42,10 +42,10 @@ namespace DBApi.Controllers
             */
             List<TestData> objTestData = new List<TestData>();
             /*
-            TestData objData = new TestData();
-            objData.emp_id = 1;
-            objData.emp_name = strConn;
-            objTestData.Add(objData);
+            TestData objDataCS = new TestData();
+            objDataCS.emp_id = 1;
+            objDataCS.emp_name = strConn;
+            objTestData.Add(objDataCS);
             return objTestData.AsEnumerable();
             */
             
