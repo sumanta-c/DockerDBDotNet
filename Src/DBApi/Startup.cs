@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace DBApi
 {
@@ -29,6 +30,10 @@ namespace DBApi
             var DBPort = Configuration["DBPort"] ?? "5432";
             var DBUser = Configuration["DBUser"] ?? "postgres";
             var DBPassword = Configuration["DBPassword"] ?? "postgres";
+
+            string strConn = string.Format("Server={0};Port={1};Database=postgres;User Id={2};Password={3};",DBServer, DBPort, DBUser, DBPassword);
+
+            //services.AddDbContext<APIDBContext>(options => options.UseNpgsql(strConn));
 
             services.AddControllers();
         }
