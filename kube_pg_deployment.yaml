@@ -1,8 +1,8 @@
-appVersion: app/v1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: postgres-statefulset
-  namespace: postgres
+  namespace: kubedbdotnet
   labels:
     app: postgres
 spec:
@@ -26,9 +26,9 @@ spec:
         - containerPort: 5432
           name: postgres
         volumeMounts:
-        - name: pg_pv_volume
+        - name: pg-pv-volume
           mountPath: /var/lib/postgresql/data
       volumes:
-      - name: pg_pv_volume
+      - name: pg-pv-volume
         persistentVolumeClaim:
-          claimName: pg_pv_claim
+          claimName: pg-pv-claim

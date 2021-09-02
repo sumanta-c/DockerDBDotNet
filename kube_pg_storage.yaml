@@ -1,8 +1,8 @@
-appVersion: v1
-kind: PersintentVolume
+apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: pg_pv_volume
-  namespace: postgres
+  name: pg-pv-volume
+  namespace: kubedbdotnet
   labels:
     type: local
     app: postgres
@@ -11,15 +11,15 @@ spec:
   capacity:
     storage: 1Gi
   accessModes:
-    - ReadWriteMeny
+    - ReadWriteMany
   hostPath:
-    path: "../kube_pg_data"
+    path: "./kube_pg_data"
 ---
-appVersion: v1
+apiVersion: v1
 kind: PersistentVolumeClaim
-metadada:
-  name: pg_pv_claim
-  namespace: postgres
+metadata:
+  name: pg-pv-claim
+  namespace: kubedbdotnet
   labels:
     app: postgres
 spec:
