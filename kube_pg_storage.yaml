@@ -1,0 +1,31 @@
+appVersion: v1
+kind: PersintentVolume
+metadata:
+  name: pg_pv_volume
+  namespace: postgres
+  labels:
+    type: local
+    app: postgres
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMeny
+  hostPath:
+    path: "../kube_pg_data"
+---
+appVersion: v1
+kind: PersistentVolumeClaim
+metadada:
+  name: pg_pv_claim
+  namespace: postgres
+  labels:
+    app: postgres
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
